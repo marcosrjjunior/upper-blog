@@ -39,26 +39,30 @@
             
             <div class="row">
                 <div class="col-lg-8">
-                    
+                    @foreach ($posts as $post)
                     <div class="post">
                         <hr>
-                        
+
                         <!-- Blog entry -->
-                        <h1><a href="#">A Blog Home Template for Bootstrap 3</a>
+                        <h1><a href="show/{{$post->slug}}">{{$post->title}}</a>
                         </h1>
-                        <p class="lead">by <a href="index.php">Start Bootstrap</a>
+                        <p class="lead">by {{$post->author->name}}
                         </p>
                         <hr>
-                        <p>
-                            <span class="glyphicon glyphicon-star"></span> Star Posted on August 28, 2013 at 10:00 PM</p>
-                        <img src="http://placehold.it/900x300" class="img-responsive">
-                        <hr>
-                        <p>This is a very basic starter template for a blog homepage. It makes use of Glyphicons that are built into Bootstrap 3, and it makes use of the Pager at the bottom of the page. Make sure you get the Glyphicons files by downloading the entire
-                            <code>/fonts</code>directory that you can download in the source files or at <a href="http://getbootstrap.com">getbootstrap.com</a>. That directory has all of the web fonts in it which makes Glyphicons work.</p>
-                        <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
                         
+                        <p>
+                            <span class="glyphicon glyphicon-time"></span> Posted on {{$post->date}}</p>
+                        <a href="show/{{$post->slug}}"><img src="{{$post->img}}" class="img-responsive"></a>
+                        <hr>
+                        <p>{{$post->content_short}}</p>
+                        <a class="btn btn-primary" href="show/{{$post->slug}}">Mais <span class="glyphicon glyphicon-chevron-right"></span></a>
+                            
                     </div>
+                    @endforeach
                     
+                    <div class="pull-right">
+                        {{$posts->links()}}
+                    </div>
                 </div>
                 
                 <div class="col-lg-4">
@@ -88,7 +92,7 @@
             <footer>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p>Copyright &copy; Company 2013</p>
+                        <p>Copyright &copy; Company 2014</p>
                     </div>
                 </div>
             </footer>

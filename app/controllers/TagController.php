@@ -43,7 +43,7 @@ class TagController extends \BaseController {
         
         // process the login
         if ($validator->fails()) {
-            return Redirect::to('authors/create')->withErrors($validator);
+            return Redirect::to('tags/create')->withErrors($validator);
         } else {
             // store
             $tag = new Tag;
@@ -104,13 +104,13 @@ class TagController extends \BaseController {
             return Redirect::to('tags/'. $id .'/edit')->withErrors($validator);
       } else {
         // store
-        $tag = Author::find($id);
-        $author->name = Input::get('name');
-        $author->save();
+        $tag = Tag::find($id);
+        $tag->name = Input::get('name');
+        $tag->save();
 
         // redirect
-        Session::flash('message', 'Successfully updated author!');
-        return Redirect::to('authors');
+        Session::flash('message', 'Successfully updated tag!');
+        return Redirect::to('tags');
       }
 	}
 

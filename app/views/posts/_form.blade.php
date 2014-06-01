@@ -57,7 +57,7 @@
     <div class="col-md-3">
         <div class="form-group">
            {{ Form::label('date', 'Date') }}
-           {{ Form::input('date', 'date', Input::old('date'), array('class' => 'form-control', 'required')) }}
+           <input class="form-control" type="date" name="date" id="date" value="{{{ (!empty($post)) ? $post->dateform: ''}}}" required>
         </div>
     </div>
     

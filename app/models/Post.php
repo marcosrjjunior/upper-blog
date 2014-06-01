@@ -13,4 +13,14 @@ class Post extends Eloquent
     protected $guarded = [
         'tag_id',
     ];
+    
+    public function getDateformAttribute($value)
+    {
+        return $this->attributes['date'];
+    }
+    
+    public function getDateAttribute($value)
+    {
+        return date('d M Y', strtotime($value));
+    }
 }

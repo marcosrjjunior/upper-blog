@@ -71,7 +71,7 @@ class PostController extends \BaseController {
 			{
 				$post->tags()->attach($tag);
 			}
-            
+
             // Redirect
             Session::flash('message', 'Successfully created Post!');
             return Redirect::to('posts');
